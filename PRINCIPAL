@@ -1,0 +1,63 @@
+// Mock components
+const Card = ({ children }) => <div className="bg-white rounded-xl shadow-md overflow-hidden">{children}</div>;
+const CardHeader = ({ children, className }) => <div className={`p-6 ${className}`}>{children}</div>;
+const CardTitle = ({ children, className }) => <h3 className={`text-lg font-semibold text-gray-800 ${className}`}>{children}</h3>;
+const CardContent = ({ children, className }) => <div className={`p-6 pt-0 ${className}`}>{children}</div>;
+
+// Mock Chart
+const DashboardCharts = () => <div className="w-full h-[350px] bg-gray-200 rounded-md flex items-center justify-center text-gray-500">Chart Placeholder</div>;
+
+export default function AnalisisPage() {
+  return (
+    <div className="space-y-8">
+        <h2 className="text-3xl font-bold tracking-tight text-gray-900">Dashboard de Análisis</h2>
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            <Card>
+                <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                    <CardTitle className="text-sm font-medium">Cumplimiento General</CardTitle>
+                </CardHeader>
+                <CardContent>
+                    <div className="text-4xl font-bold text-green-600">87%</div>
+                    <p className="text-xs text-gray-500">+5.2% vs mes anterior</p>
+                </CardContent>
+            </Card>
+            <Card>
+                <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                    <CardTitle className="text-sm font-medium">Proyectos Activos</CardTitle>
+                </CardHeader>
+                <CardContent>
+                    <div className="text-4xl font-bold">124</div>
+                    <p className="text-xs text-gray-500">+10 nuevos esta semana</p>
+                </CardContent>
+            </Card>
+            <Card>
+                <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                    <CardTitle className="text-sm font-medium">Pagos Validados</CardTitle>
+                </CardHeader>
+                <CardContent>
+                    <div className="text-4xl font-bold">95</div>
+                    <p className="text-xs text-gray-500">3 pendientes de revisión</p>
+                </CardContent>
+            </Card>
+            <Card>
+                <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                    <CardTitle className="text-sm font-medium">Alertas por Vencer</CardTitle>
+                </CardHeader>
+                <CardContent>
+                    <div className="text-4xl font-bold text-orange-500">8</div>
+                    <p className="text-xs text-gray-500">Próximo vencimiento en 3 días</p>
+                </CardContent>
+            </Card>
+        </div>
+
+        <Card>
+            <CardHeader>
+                <CardTitle>Indicadores de Ejecución por Región</CardTitle>
+            </CardHeader>
+            <CardContent className="pl-2">
+                <DashboardCharts />
+            </CardContent>
+        </Card>
+    </div>
+  );
+}
